@@ -11,15 +11,16 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    loader: () => fetch(`http://localhost:5000/coffee`),
+    loader: () => fetch(`https://server-site-phi.vercel.app/coffee`),
   },
   {
     path: "add",
     element: <AddCoffee />,
   },
   {
-    path: "update",
+    path: "/update/:id",
     element: <UpdateCoffee />,
+    loader: ({ params }) => fetch(`https://server-site-phi.vercel.app/coffee/${params.id}`),
   },
 ]);
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Coffee = ({ coffee, setCoffees, coffees }) => {
@@ -14,7 +15,7 @@ const Coffee = ({ coffee, setCoffees, coffees }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/coffee/${id}`, {
+        fetch(`https://server-site-phi.vercel.app/coffee/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -47,7 +48,7 @@ const Coffee = ({ coffee, setCoffees, coffees }) => {
           </div>
           <div className="flex justify-between items-center w-full">
             <p>{chef}</p>
-            <button>Edit</button>
+            <Link to={`/update/${_id}`}>Edit</Link>
           </div>
           <div className="flex justify-between items-center w-full">
             <p>{taste}</p>
